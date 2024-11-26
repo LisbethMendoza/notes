@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:notes/login_screen.dart';
+import 'package:notes/signup_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,8 +19,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'ToDo',
-      theme: ThemeData(primaryColor: Colors.indigo),
-      home: LoginScreen(),
+      theme: ThemeData(primarySwatch: Colors.indigo, primaryColor: Colors.indigo ),
+      home: SignupScreen(),
     );
   }
 }
