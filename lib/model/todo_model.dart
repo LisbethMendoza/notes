@@ -2,7 +2,7 @@ class Todo {
   final String id;
   final String title;
   final String description;
-  final String completed;
+  final bool completed;
   final String timeStamp;
 
   Todo(

@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:notes/model/todo_model.dart';
 
+
 class DatabaseService {
   final CollectionReference todoCollection =
       FirebaseFirestore.instance.collection("todos");
@@ -47,7 +48,7 @@ class DatabaseService {
   Stream<List<Todo>> get completedtodos {
     return todoCollection
         .where('uid', isEqualTo: user!.uid)
-        .where('completed', isEqualTo: false)
+        .where('completed', isEqualTo: true)
         .snapshots()
         .map(_todoListFromSnapshot);
   }
@@ -55,16 +56,16 @@ class DatabaseService {
   List<Todo> _todoListFromSnapshot(QuerySnapshot snapshot) {
     return snapshot.docs.map((doc) {
       return Todo(
-          id: doc.id,
-          title: doc['title'] ?? '',
-          description: doc['description'] ?? '',
-          completed: doc['completed'] ?? '',
-          timeStamp: doc['createdAt'] ?? '');
+        id: doc.id,
+        title: doc['title'] ?? '',
+        description: doc['description'] ?? '',
+        completed: doc['completed'] ?? '',
+        timeStamp: (doc['createdAt'] != null)
+            ? (doc['createdAt'] as Timestamp)
+                .toDate()
+                .toString() 
+            : DateTime.now().toString(),
+      );
     }).toList();
   }
-
-  
-
-
-
 }
