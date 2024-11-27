@@ -1,5 +1,4 @@
 import 'dart:ffi';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -36,7 +35,7 @@ class _PendingWidgetState extends State<PendingWidget> {
               itemCount: todos.length,
               itemBuilder: (context, index) {
                 Todo todo = todos[index];
-                final DateTime dt = todo.timeStamp.toDate();
+                final DateTime dt = DateTime.tryParse(todo.timeStamp) ?? DateTime.now();
                 return Container(
                   margin: EdgeInsets.all(10),
                   decoration: BoxDecoration(
