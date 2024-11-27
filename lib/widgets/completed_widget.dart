@@ -37,7 +37,7 @@ class _CompletedWidgetState extends State<CompletedWidget> {
               itemCount: todos.length,
               itemBuilder: (context, index) {
                 Todo todo = todos[index];
-                final DateTime dt = DateTime.tryParse(todo.timeStamp) ?? DateTime.now();
+                final DateTime dt = DateTime.parse(todo.timeStamp);
                 return Container(
                   margin: EdgeInsets.all(10),
                   decoration: BoxDecoration(
@@ -75,13 +75,13 @@ class _CompletedWidgetState extends State<CompletedWidget> {
                         ),
                       ),
                       trailing: Text(
-                        '${dt.day}/${dt.month}/${dt.year}',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
+                       '${dt.day}/${dt.month}/${dt.year}',
+                       style: TextStyle(
+                        fontWeight: FontWeight.bold,
                         ),
                       ),
-                    ),
-                  ),
+                   ),
+                 ),
                 );
               });
         } else {
