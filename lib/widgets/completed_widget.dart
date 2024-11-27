@@ -37,7 +37,7 @@ class _CompletedWidgetState extends State<CompletedWidget> {
               itemCount: todos.length,
               itemBuilder: (context, index) {
                 Todo todo = todos[index];
-                final DateTime dt = todo.timeStamp.toDate();
+                final DateTime dt = DateTime.tryParse(todo.timeStamp) ?? DateTime.now();
                 return Container(
                   margin: EdgeInsets.all(10),
                   decoration: BoxDecoration(
