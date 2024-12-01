@@ -30,7 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         backgroundColor: Color.fromARGB(246, 31, 1, 1),
         foregroundColor: Colors.white,
-        title: Text("ToDo"),
+        title: Text("Notas"),
         actions: [
           IconButton(
             onPressed: () async {
