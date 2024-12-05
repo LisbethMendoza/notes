@@ -76,7 +76,7 @@ class LoginScreen extends StatelessWidget {
                 width: MediaQuery.of(context).size.width / 1.5, 
                 child: ElevatedButton(
                     onPressed: () async {
-                      User? user = await _auth.signInWithEmailAndPassword(
+                      User? user = await _auth.singInWithEmailAndPassWord(
                         _emailController.text,
                         _passController.text,
                       );
